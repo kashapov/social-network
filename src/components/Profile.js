@@ -1,8 +1,10 @@
 import React from "react";
 
+import classes from "./Profile.module.css";
+
 function Profile() {
   return (
-    <section class="content">
+    <section class={classes.profile}>
       <div>image</div>
       <div>avatar + description</div>
       <div>

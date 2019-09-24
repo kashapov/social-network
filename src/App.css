@@ -10,23 +10,3 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
 }
-
-.header {
-  grid-area: header;
-  border: 1px solid;
-}
-
-.sidebar {
-  grid-area: nav;
-  border: 1px solid;
-}
-
-.nav {
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  grid-area: content;
-  border: 1px solid;
-}

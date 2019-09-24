@@ -1,0 +1,9 @@
+.sidebar {
+  grid-area: nav;
+  border: 1px solid;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}

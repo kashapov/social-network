@@ -1,9 +1,11 @@
 import React from "react";
 
+import classes from "./Sidebar.module.css";
+
 function Sidebar() {
   return (
-    <aside class="sidebar">
-      <nav className="nav">
+    <aside className={classes.sidebar}>
+      <nav className={classes.nav}>
         <a href="#">Profile</a>
         <a href="#">Messages</a>
         <a href="#">News</a>
