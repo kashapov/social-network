@@ -1,4 +1,4 @@
-.App {
+.app {
   display: grid;
   width: 800px;
   margin: 0 auto;
@@ -9,4 +9,9 @@
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
+}
+
+.content {
+  grid-area: content;
+  border: 1px solid;
 }
