@@ -1,16 +1,15 @@
 import React from "react";
 
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 import classes from "./Profile.module.css";
 
-const Profile = () => {
+const Profile = props => {
   return (
     <section>
-      Profile component
-      <div>image</div>
-      <div>avatar + description</div>
-      <MyPosts />
+      <ProfileInfo />
+      <MyPosts state={props.state} />
     </section>
   );
 };

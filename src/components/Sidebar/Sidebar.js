@@ -11,7 +11,7 @@ const Sidebar = () => {
         <NavLink to="/profile" activeClassName={classes.active}>
           Profile
         </NavLink>
-        <NavLink to="/messages" activeClassName={classes.active}>
+        <NavLink to="/dialogs" activeClassName={classes.active}>
           Messages
         </NavLink>
         <NavLink to="/news" activeClassName={classes.active}>
