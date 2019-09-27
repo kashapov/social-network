@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -13,35 +13,28 @@ import classes from "./App.css";
 
 function App(props) {
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Header />
-        <Sidebar />
-        <div className="content">
-          <Route
-            path="/dialogs"
-            render={() => (
-              <Dialogs
-                state={props.state.messagesPage}
-                // dialogsData={props.state.messagesPage.dialogsData}
-                // messagesData={props.state.messagesPage.messagesData}
-              />
-            )}
-          />
-          <Route
-            path="/profile"
-            render={() => (
-              <Profile
-                state={props.state.profilePage}
-                // postsData={props.state.profilePage.postsData}
-              />
-            )}
-          />
-          <Route path="/news" component={News} />
-          <Route path="/music" component={Music} />
-        </div>
+    <div className="app">
+      <Header />
+      <Sidebar />
+      <div className="content">
+        <Route
+          path="/dialogs"
+          render={() => <Dialogs state={props.state.messagesPage} />}
+        />
+        <Route
+          path="/profile"
+          render={() => (
+            <Profile
+              state={props.state.profilePage}
+              addPost={props.addPost}
+              updateNewPostText={props.updateNewPostText}
+            />
+          )}
+        />
+        <Route path="/news" component={News} />
+        <Route path="/music" component={Music} />
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
