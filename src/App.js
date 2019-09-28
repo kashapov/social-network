@@ -9,7 +9,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 
-import classes from "./App.css";
+// import classes from "./App.css";
 
 function App(props) {
   return (

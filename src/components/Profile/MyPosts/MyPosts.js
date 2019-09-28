@@ -6,7 +6,7 @@ import classes from "./MyPosts.module.css";
 
 const MyPosts = props => {
   let posts = props.postsData.map(post => (
-    <Post id={post.id} message={post.message} likes={post.likes} />
+    <li key={post.id}><Post id={post.id} message={post.message} likes={post.likes} /></li>
   ));
 
   let newPostElement = React.createRef();
@@ -35,7 +35,7 @@ const MyPosts = props => {
           <button onClick={addPost}>Add post</button>
         </div>
       </div>
-      <div className={classes.posts}>{posts}</div>
+      <div className={classes.posts}><ul>{posts}</ul></div>
     </div>
   );
 };
