@@ -6,18 +6,20 @@ import classes from "./MyPosts.module.css";
 
 const MyPosts = props => {
   let posts = props.postsData.map(post => (
-    <li key={post.id}><Post id={post.id} message={post.message} likes={post.likes} /></li>
+    <li key={post.id}>
+      <Post id={post.id} message={post.message} likes={post.likes} />
+    </li>
   ));
 
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    props.addPost();
+    props.dispatch({ type: "ADD-POST" });
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    props.dispatch({ type: "UPDATE-NEW-POST-TEXT", newPostText: text });
   };
 
   return (
@@ -35,7 +37,9 @@ const MyPosts = props => {
           <button onClick={addPost}>Add post</button>
         </div>
       </div>
-      <div className={classes.posts}><ul>{posts}</ul></div>
+      <div className={classes.posts}>
+        <ul>{posts}</ul>
+      </div>
     </div>
   );
 };

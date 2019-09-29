@@ -21,28 +21,35 @@ let store = {
     },
     sidebar: {}
   },
+  _callSubscriber() {},
+
   getState() {
     return this._state;
   },
-  _callSubscriber() {},
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likes: 0
-    };
-
-    this._state.profilePage.postsData.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText(newPostText) {
-    this._state.profilePage.newPostText = newPostText;
-
-    this._callSubscriber(this._state);
-  },
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    switch (action.type) {
+      case "ADD-POST":
+        let newPost = {
+          id: 5,
+          message: this._state.profilePage.newPostText,
+          likes: 0
+        };
+
+        this._state.profilePage.postsData.push(newPost);
+        this._state.profilePage.newPostText = "";
+        this._callSubscriber(this._state);
+        break;
+      case "UPDATE-NEW-POST-TEXT":
+        this._state.profilePage.newPostText = action.newPostText;
+        this._callSubscriber(this._state);
+        break;
+      default:
+        break;
+    }
   }
 };
 
