@@ -9,20 +9,20 @@ import {
 import classes from "./MyPosts.module.css";
 
 const MyPosts = props => {
-  let posts = props.postsData.map(post => (
+  const { newPostText, postsData } = props.state;
+
+  let posts = postsData.map(post => (
     <li key={post.id}>
       <Post id={post.id} message={post.message} likes={post.likes} />
     </li>
   ));
 
-  let newPostElement = React.createRef();
-
   let addPost = () => {
     props.dispatch(addPostActionCreator());
   };
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
+  let onPostChange = e => {
+    let text = e.target.value;
     props.dispatch(updateNewPostTextActionCreator(text));
   };
 
@@ -32,9 +32,9 @@ const MyPosts = props => {
       <div>
         <div>
           <textarea
-            ref={newPostElement}
             onChange={onPostChange}
-            value={props.newPostText}
+            value={newPostText}
+            placeholder="Enter post"
           />
         </div>
         <div>
