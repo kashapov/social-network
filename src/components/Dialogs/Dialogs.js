@@ -2,15 +2,17 @@ import React from "react";
 
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {
-  addMessageActionCreator,
-  updateNewMessageTextActionCreator
-} from "../../redux/dialogsReducer";
 
 import classes from "./Dialogs.module.css";
 
 const Dialogs = props => {
-  const { newMessageText, messagesData, dialogsData } = props.state;
+  const {
+    newMessageText,
+    messagesData,
+    dialogsData,
+    addMessage,
+    updateMessage
+  } = props;
 
   let dialogs = dialogsData.map(el => (
     <li key={el.id}>
@@ -23,13 +25,13 @@ const Dialogs = props => {
     </li>
   ));
 
-  let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+  let onAddMessage = () => {
+    addMessage();
   };
 
   let onMessageChange = e => {
     let text = e.target.value;
-    props.dispatch(updateNewMessageTextActionCreator(text));
+    updateMessage(text);
   };
 
   return (
@@ -47,7 +49,7 @@ const Dialogs = props => {
           />
         </div>
         <div>
-          <button onClick={addMessage}>Send</button>
+          <button onClick={onAddMessage}>Send</button>
         </div>
       </div>
     </div>
