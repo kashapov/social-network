@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator
-} from "../../../redux/state";
+} from "../../../redux/profileReducer";
 
 import classes from "./MyPosts.module.css";
 
