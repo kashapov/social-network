@@ -21,3 +21,13 @@
 .nav a.active {
   color: red;
 }
+
+.widget {
+  border: 1px solid;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.widget button {
+  margin-top: 5px;
+}

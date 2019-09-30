@@ -24,6 +24,11 @@ const Sidebar = () => {
           Settings
         </NavLink>
       </nav>
+
+      <div className={classes.widget}>
+        <input type="text" placeholder="Enter new menu" />
+        <button>Add</button>
+      </div>
     </aside>
   );
 };
