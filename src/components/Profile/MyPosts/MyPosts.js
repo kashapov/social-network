@@ -5,7 +5,8 @@ import Post from "./Post/Post";
 import classes from "./MyPosts.module.css";
 
 const MyPosts = props => {
-  const { newPostText, postsData, addPost, updateNewPostText } = props;
+  const { addPost, updateNewPostText } = props;
+  const { newPostText, postsData } = props.profilePage;
 
   let posts = postsData.map(post => (
     <li key={post.id}>

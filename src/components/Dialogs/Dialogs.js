@@ -6,13 +6,8 @@ import Message from "./Message/Message";
 import classes from "./Dialogs.module.css";
 
 const Dialogs = props => {
-  const {
-    newMessageText,
-    messagesData,
-    dialogsData,
-    addMessage,
-    updateMessage
-  } = props;
+  const { addMessage, updateMessage } = props;
+  const { newMessageText, messagesData, dialogsData } = props.dialogsPage;
 
   let dialogs = dialogsData.map(el => (
     <li key={el.id}>
