@@ -21,13 +21,18 @@ function App(props) {
           path="/dialogs"
           render={() => (
             <DialogsContainer
-              store={props.store}
-              // state={props.state.dialogsPage}
-              // dispatch={props.dispatch}
+            // store={props.store}
             />
           )}
         />
-        <Route path="/profile" render={() => <Profile store={props.store} />} />
+        <Route
+          path="/profile"
+          render={() => (
+            <Profile
+            // store={props.store}
+            />
+          )}
+        />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
       </div>
