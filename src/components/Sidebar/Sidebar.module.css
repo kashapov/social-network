@@ -1,6 +1,7 @@
 .sidebar {
   grid-area: nav;
-  border: 1px solid;
+  border: 5px solid lightgray;
+  border-radius: 5px;
   padding: 5px;
 }
 
@@ -23,7 +24,8 @@
 }
 
 .widget {
-  border: 1px solid;
+  border: 5px solid lightgray;
+  border-radius: 5px;
   margin-top: 10px;
   padding: 5px;
 }
