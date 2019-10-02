@@ -26,6 +26,10 @@
   margin-left: 5px;
 }
 
+.userName{
+  font-weight: bold;
+}
+
 .userStatus {
   font-size: 0.9em;
   font-style: italic;
