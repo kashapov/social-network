@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/user-avatar.jpg";
 
-let Users = props => {
+const Users = props => {
   const {
     users,
     follow,
