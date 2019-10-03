@@ -5,12 +5,12 @@ import * as axios from "axios";
 
 import Users from "./Users";
 import {
-  followAC,
-  unfollowAC,
-  setUsersAC,
-  setCurrentPageAC,
-  setUsersCountAC,
-  toggleIsFetchingAC
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setUsersCount,
+  toggleIsFetching
 } from "../../redux/usersReducer";
 import Spinner from "../Spinner/Spinner";
 import { getUsersApiUrl } from "../../config";
@@ -88,30 +88,14 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    follow: userId => {
-      dispatch(followAC(userId));
-    },
-    unfollow: userId => {
-      dispatch(unfollowAC(userId));
-    },
-    setUsers: users => {
-      dispatch(setUsersAC(users));
-    },
-    setUsersCount: usersCount => {
-      dispatch(setUsersCountAC(usersCount));
-    },
-    setCurrentPage: page => {
-      dispatch(setCurrentPageAC(page));
-    },
-    toggleIsFetching: isFetching => {
-      dispatch(toggleIsFetchingAC(isFetching));
-    }
-  };
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    follow,
+    unfollow,
+    setUsers,
+    setUsersCount,
+    setCurrentPage,
+    toggleIsFetching
+  }
 )(UsersContainer);
