@@ -11,15 +11,14 @@ import {
   setCurrentPageAC,
   setUsersCountAC
 } from "../../redux/usersReducer";
+import { getUsersApiUrl } from "../../config";
 
 class UsersContainer extends React.PureComponent {
-  baseUrl = `https://social-network.samuraijs.com/api/1.0/users`;
-
   getUsers = () => {
     const { setUsers, setUsersCount, currentPage, pageSize } = this.props;
 
     axios
-      .get(`${this.baseUrl}?page=${currentPage}&count=${pageSize}`)
+      .get(`${getUsersApiUrl}?page=${currentPage}&count=${pageSize}`)
       .then(response => {
         setUsers(response.data.items);
         setUsersCount(response.data.totalCount);
@@ -32,7 +31,7 @@ class UsersContainer extends React.PureComponent {
     setCurrentPage(page);
 
     axios
-      .get(`${this.baseUrl}?page=${page}&count=${pageSize}`)
+      .get(`${getUsersApiUrl}?page=${page}&count=${pageSize}`)
       .then(response => {
         setUsers(response.data.items);
       });
