@@ -3,10 +3,13 @@ import React from "react";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = () => {
+const Profile = props => {
+  if (!props.profile) {
+    return "Loading";
+  }
   return (
     <section>
-      <ProfileInfo />
+      <ProfileInfo profile={props.profile} />
       <MyPostsContainer />
     </section>
   );

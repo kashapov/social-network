@@ -2,3 +2,36 @@
   border: 1px solid;
   padding: 5px;
 }
+
+.userProfile {
+  display: flex;
+  background-color: lightgray;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.userPhoto {
+  width: 200px;
+}
+
+.userProfileLeft,
+.userProfileRight {
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.userProfileRight {
+  width: 100%;
+  margin-left: 5px;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.userStatus {
+  font-size: 0.9em;
+  font-style: italic;
+}
