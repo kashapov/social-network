@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import * as axios from "axios";
 
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/user-avatar.jpg";
+import { followUserApiUrl } from "../../config";
 
 const Users = props => {
   const {
@@ -60,7 +62,18 @@ const Users = props => {
           {u.followed ? (
             <button
               onClick={() => {
-                unfollow(u.id);
+                axios
+                  .delete(`${followUserApiUrl}/${u.id}`, {
+                    withCredentials: true,
+                    headers: {
+                      "API-KEY": "2637dec1-5ad1-4cbb-9242-012b3c879011"
+                    }
+                  })
+                  .then(response => {
+                    if (response.data.resultCode === 0) {
+                      unfollow(u.id);
+                    }
+                  });
               }}
             >
               Unfollow
@@ -68,7 +81,22 @@ const Users = props => {
           ) : (
             <button
               onClick={() => {
-                follow(u.id);
+                axios
+                  .post(
+                    `${followUserApiUrl}/${u.id}`,
+                    {},
+                    {
+                      withCredentials: true,
+                      headers: {
+                        "API-KEY": "2637dec1-5ad1-4cbb-9242-012b3c879011"
+                      }
+                    }
+                  )
+                  .then(response => {
+                    if (response.data.resultCode === 0) {
+                      follow(u.id);
+                    }
+                  });
               }}
             >
               follow

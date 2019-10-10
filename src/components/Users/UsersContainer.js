@@ -26,7 +26,9 @@ class UsersContainer extends React.PureComponent {
     } = this.props;
     toggleIsFetching(true);
     axios
-      .get(`${getUsersApiUrl}?page=${currentPage}&count=${pageSize}`)
+      .get(`${getUsersApiUrl}?page=${currentPage}&count=${pageSize}`, {
+        withCredentials: true
+      })
       .then(response => {
         toggleIsFetching(false);
         setUsers(response.data.items);
@@ -40,7 +42,9 @@ class UsersContainer extends React.PureComponent {
     setCurrentPage(page);
     toggleIsFetching(true);
     axios
-      .get(`${getUsersApiUrl}?page=${page}&count=${pageSize}`)
+      .get(`${getUsersApiUrl}?page=${page}&count=${pageSize}`, {
+        withCredentials: true
+      })
       .then(response => {
         toggleIsFetching(false);
         setUsers(response.data.items);
