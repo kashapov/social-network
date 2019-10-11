@@ -13,6 +13,17 @@ export const usersAPI = {
     return socialNetworkService
       .get(`users?page=${currentPage}&count=${pageSize}`)
       .then(response => response.data);
+  },
+  followUser(userId) {
+    return socialNetworkService
+      .post(`follow/${userId}`)
+      .then(response => response.data);
+  },
+
+  unfollowUser(userId) {
+    return socialNetworkService
+      .delete(`follow/${userId}`)
+      .then(response => response.data);
   }
 };
 
@@ -26,20 +37,6 @@ export const profileAPI = {
   getProfile(userId) {
     return socialNetworkService
       .get(`profile/${userId}`)
-      .then(response => response.data);
-  }
-};
-
-export const followAPI = {
-  followUser(userId) {
-    return socialNetworkService
-      .post(`follow/${userId}`)
-      .then(response => response.data);
-  },
-
-  unfollowUser(userId) {
-    return socialNetworkService
-      .delete(`follow/${userId}`)
       .then(response => response.data);
   }
 };

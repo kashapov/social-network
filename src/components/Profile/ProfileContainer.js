@@ -3,19 +3,16 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import Profile from "./Profile";
-import { setProfile } from "../../redux/profileReducer";
-import { profileAPI } from "../../api/api";
+import { getProfile } from "../../redux/profileReducer";
 
 class ProfileContainer extends React.PureComponent {
   componentDidMount() {
-    const { setProfile, match } = this.props;
+    const { match, getProfile } = this.props;
     let userId = match.params.userId;
 
     if (!userId) userId = 1729;
 
-    profileAPI.getProfile(userId).then(data => {
-      setProfile(data);
-    });
+    getProfile(userId);
   }
 
   render() {
@@ -31,5 +28,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { setProfile }
+  { getProfile }
 )(withRouter(ProfileContainer));
