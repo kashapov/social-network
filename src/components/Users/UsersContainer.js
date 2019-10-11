@@ -8,7 +8,8 @@ import {
   setUsers,
   setCurrentPage,
   setUsersCount,
-  toggleIsFetching
+  toggleIsFetching,
+  toggleIsFollowingProgress
 } from "../../redux/usersReducer";
 import Spinner from "../Spinner/Spinner";
 import { usersAPI } from "../../api/api";
@@ -51,12 +52,15 @@ class UsersContainer extends React.PureComponent {
       unfollow,
       pageSize,
       usersCount,
-      currentPage
+      currentPage,
+      toggleIsFollowingProgress,
+      isFollowingProgress
     } = this.props;
 
     return (
       <>
         {this.props.isFetching ? <Spinner /> : null}
+
         <Users
           users={users}
           usersCount={usersCount}
@@ -65,6 +69,8 @@ class UsersContainer extends React.PureComponent {
           onPageChanged={this.onPageChanged}
           follow={follow}
           unfollow={unfollow}
+          toggleIsFollowingProgress={toggleIsFollowingProgress}
+          isFollowingProgress={isFollowingProgress}
         />
       </>
     );
@@ -77,7 +83,8 @@ const mapStateToProps = state => {
     pageSize: state.usersPage.pageSize,
     usersCount: state.usersPage.usersCount,
     currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching
+    isFetching: state.usersPage.isFetching,
+    isFollowingProgress: state.usersPage.isFollowingProgress
   };
 };
 
@@ -89,6 +96,7 @@ export default connect(
     setUsers,
     setUsersCount,
     setCurrentPage,
-    toggleIsFetching
+    toggleIsFetching,
+    toggleIsFollowingProgress
   }
 )(UsersContainer);

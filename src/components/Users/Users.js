@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { usersAPI } from "../../api/api";
+import { followAPI } from "../../api/api";
 
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/user-avatar.jpg";
@@ -14,7 +14,9 @@ const Users = props => {
     pageSize,
     usersCount,
     currentPage,
-    onPageChanged
+    onPageChanged,
+    toggleIsFollowingProgress,
+    isFollowingProgress
   } = props;
 
   const pagesCount = Math.ceil(usersCount / pageSize);
@@ -61,11 +63,14 @@ const Users = props => {
         <div>
           {u.followed ? (
             <button
+              disabled={isFollowingProgress.some(id => id === u.id)}
               onClick={() => {
-                usersAPI.unfollowUser(u.id).then(data => {
+                toggleIsFollowingProgress(true, u.id);
+                followAPI.unfollowUser(u.id).then(data => {
                   if (data.resultCode === 0) {
                     unfollow(u.id);
                   }
+                  toggleIsFollowingProgress(false, u.id);
                 });
               }}
             >
@@ -73,11 +78,14 @@ const Users = props => {
             </button>
           ) : (
             <button
+              disabled={isFollowingProgress.some(id => id === u.id)}
               onClick={() => {
-                usersAPI.followUser(u.id).then(data => {
+                toggleIsFollowingProgress(true, u.id);
+                followAPI.followUser(u.id).then(data => {
                   if (data.resultCode === 0) {
                     follow(u.id);
                   }
+                  toggleIsFollowingProgress(false, u.id);
                 });
               }}
             >
