@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import * as axios from "axios";
-
 import Users from "./Users";
 import {
   follow,
@@ -13,10 +11,22 @@ import {
   toggleIsFetching
 } from "../../redux/usersReducer";
 import Spinner from "../Spinner/Spinner";
-import { getUsersApiUrl } from "../../config";
+import { usersAPI } from "../../api/api";
 
 class UsersContainer extends React.PureComponent {
-  getUsers = () => {
+  onPageChanged = page => {
+    const { setCurrentPage, pageSize, setUsers, toggleIsFetching } = this.props;
+
+    setCurrentPage(page);
+    toggleIsFetching(true);
+
+    usersAPI.getUsers(page, pageSize).then(data => {
+      toggleIsFetching(false);
+      setUsers(data.items);
+    });
+  };
+
+  componentDidMount() {
     const {
       setUsers,
       setUsersCount,
@@ -24,35 +34,14 @@ class UsersContainer extends React.PureComponent {
       pageSize,
       toggleIsFetching
     } = this.props;
+
     toggleIsFetching(true);
-    axios
-      .get(`${getUsersApiUrl}?page=${currentPage}&count=${pageSize}`, {
-        withCredentials: true
-      })
-      .then(response => {
-        toggleIsFetching(false);
-        setUsers(response.data.items);
-        setUsersCount(response.data.totalCount);
-      });
-  };
 
-  onPageChanged = page => {
-    const { setCurrentPage, pageSize, setUsers, toggleIsFetching } = this.props;
-
-    setCurrentPage(page);
-    toggleIsFetching(true);
-    axios
-      .get(`${getUsersApiUrl}?page=${page}&count=${pageSize}`, {
-        withCredentials: true
-      })
-      .then(response => {
-        toggleIsFetching(false);
-        setUsers(response.data.items);
-      });
-  };
-
-  componentDidMount() {
-    this.getUsers();
+    usersAPI.getUsers(currentPage, pageSize).then(data => {
+      toggleIsFetching(false);
+      setUsers(data.items);
+      setUsersCount(data.totalCount);
+    });
   }
 
   render() {
