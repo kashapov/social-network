@@ -24,19 +24,16 @@ export const usersAPI = {
     return socialNetworkService
       .delete(`follow/${userId}`)
       .then(response => response.data);
+  },
+  getProfile(userId) {
+    return socialNetworkService
+      .get(`profile/${userId}`)
+      .then(response => response.data);
   }
 };
 
 export const authAPI = {
   authMe() {
     return socialNetworkService.get(`/auth/me`).then(response => response.data);
-  }
-};
-
-export const profileAPI = {
-  getProfile(userId) {
-    return socialNetworkService
-      .get(`profile/${userId}`)
-      .then(response => response.data);
   }
 };

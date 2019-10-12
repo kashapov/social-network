@@ -1,4 +1,5 @@
 import React from "react";
+import { compose } from "redux";
 import { connect } from "react-redux";
 
 import Users from "./Users";
@@ -57,11 +58,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    getUsers,
-    followUser,
-    unfollowUser
-  }
+export default compose(
+  connect(
+    mapStateToProps,
+    {
+      getUsers,
+      followUser,
+      unfollowUser
+    }
+  )
 )(UsersContainer);
