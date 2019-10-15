@@ -9,7 +9,6 @@ import {
   getStatus,
   updateStatus
 } from "../../redux/profileReducer";
-// import witAuthRedirect from "../../hoc/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -47,5 +46,4 @@ export default compose(
     { getProfile, getStatus, updateStatus }
   ),
   withRouter
-  // witAuthRedirect
 )(ProfileContainer);

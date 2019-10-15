@@ -6,3 +6,9 @@
 .posts {
   margin-top: 10px;
 }
+
+.postForm {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
