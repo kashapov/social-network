@@ -26,6 +26,9 @@ const Sidebar = () => {
         <NavLink to="/settings" activeClassName={classes.active}>
           Settings
         </NavLink>
+        <NavLink to="/login" activeClassName={classes.active}>
+          Login
+        </NavLink>
       </nav>
 
       <div className={classes.widget}>

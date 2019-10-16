@@ -52,5 +52,15 @@ export const profileAPI = {
 export const authAPI = {
   authMe() {
     return socialNetworkService.get(`/auth/me`).then(response => response.data);
+  },
+  login(email, password, rememberMe = false) {
+    return socialNetworkService
+      .post(`/auth/login`, { email, password, rememberMe })
+      .then(response => response.data);
+  },
+  logout() {
+    return socialNetworkService
+      .delete(`/auth/login`)
+      .then(response => response.data);
   }
 };
