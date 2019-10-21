@@ -1,13 +1,14 @@
-import { authAPI } from "../api/api";
+import { stopSubmit } from 'redux-form';
+import { authAPI } from '../api/api';
 
-const SET_USER_DATA = "SET_USER_DATA";
+const SET_USER_DATA = 'SET_USER_DATA';
 
 let initialState = {
   userId: null,
   email: null,
   login: null,
   isFetching: false,
-  isAuth: false
+  isAuth: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -15,7 +16,7 @@ const authReducer = (state = initialState, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
 
     default:
@@ -26,13 +27,13 @@ const authReducer = (state = initialState, action) => {
 // Action Creators
 export const setAuthUserData = (userId, email, login, isAuth) => ({
   type: SET_USER_DATA,
-  payload: { userId, email, login, isAuth }
+  payload: { userId, email, login, isAuth },
 });
 
 // Thunk Creators
 export const authMe = () => {
   return dispatch => {
-    authAPI.authMe().then(data => {
+    return authAPI.authMe().then(data => {
       if (data.resultCode === 0) {
         const { id, email, login } = data.data;
         dispatch(setAuthUserData(id, email, login, true));
@@ -46,6 +47,11 @@ export const login = (email, password, rememberMe) => {
     authAPI.login(email, password, rememberMe).then(data => {
       if (data.resultCode === 0) {
         dispatch(authMe());
+      } else {
+        const errorMessage = data.messages.length
+          ? data.messages[0]
+          : 'Some Error';
+        dispatch(stopSubmit('login', { _error: errorMessage }));
       }
     });
   };
