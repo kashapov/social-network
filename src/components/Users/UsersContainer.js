@@ -1,10 +1,18 @@
-import React from "react";
-import { compose } from "redux";
-import { connect } from "react-redux";
+import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 
-import Users from "./Users";
-import { getUsers, followUser, unfollowUser } from "../../redux/usersReducer";
-import Spinner from "../Spinner/Spinner";
+import Users from './Users';
+import { getUsers, followUser, unfollowUser } from '../../redux/usersReducer';
+import Spinner from '../Spinner/Spinner';
+import {
+  getUsersSelector,
+  getPageSizeSelector,
+  getUsersCountSelector,
+  getCurrentPageSelector,
+  getIsFetchingSelector,
+  getIsFollowingProgressSelector,
+} from '../../redux/usersSelectors';
 
 class UsersContainer extends React.PureComponent {
   onPageChanged = page => {
@@ -25,7 +33,7 @@ class UsersContainer extends React.PureComponent {
       currentPage,
       isFollowingProgress,
       followUser,
-      unfollowUser
+      unfollowUser,
     } = this.props;
 
     return (
@@ -47,14 +55,25 @@ class UsersContainer extends React.PureComponent {
   }
 }
 
+// const mapStateToProps = state => {
+//   return {
+//     users: state.usersPage.users,
+//     pageSize: state.usersPage.pageSize,
+//     usersCount: state.usersPage.usersCount,
+//     currentPage: state.usersPage.currentPage,
+//     isFetching: state.usersPage.isFetching,
+//     isFollowingProgress: state.usersPage.isFollowingProgress,
+//   };
+// };
+
 const mapStateToProps = state => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    usersCount: state.usersPage.usersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    isFollowingProgress: state.usersPage.isFollowingProgress
+    users: getUsersSelector(state),
+    pageSize: getPageSizeSelector(state),
+    usersCount: getUsersCountSelector(state),
+    currentPage: getCurrentPageSelector(state),
+    isFetching: getIsFetchingSelector(state),
+    isFollowingProgress: getIsFollowingProgressSelector(state),
   };
 };
 
@@ -64,7 +83,7 @@ export default compose(
     {
       getUsers,
       followUser,
-      unfollowUser
-    }
-  )
+      unfollowUser,
+    },
+  ),
 )(UsersContainer);
