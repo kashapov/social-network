@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatusHooks from "./ProfileStatusHooks";
 
 import classes from "./ProfileInfo.module.css";
 
@@ -21,7 +21,7 @@ const ProfileInfo = props => {
       <div className={classes.userProfileRight}>
         <div>
           <div className={classes.userName}>{props.profile.fullName}</div>
-          <ProfileStatus
+          <ProfileStatusHooks
             status={props.status}
             updateStatus={props.updateStatus}
           />
