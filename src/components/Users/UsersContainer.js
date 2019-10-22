@@ -34,11 +34,12 @@ class UsersContainer extends React.PureComponent {
       isFollowingProgress,
       followUser,
       unfollowUser,
+      isFetching,
     } = this.props;
 
     return (
       <>
-        {this.props.isFetching ? <Spinner /> : null}
+        {isFetching ? <Spinner /> : null}
 
         <Users
           users={users}
@@ -54,17 +55,6 @@ class UsersContainer extends React.PureComponent {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     users: state.usersPage.users,
-//     pageSize: state.usersPage.pageSize,
-//     usersCount: state.usersPage.usersCount,
-//     currentPage: state.usersPage.currentPage,
-//     isFetching: state.usersPage.isFetching,
-//     isFollowingProgress: state.usersPage.isFollowingProgress,
-//   };
-// };
 
 const mapStateToProps = state => {
   return {
