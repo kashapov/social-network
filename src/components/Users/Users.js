@@ -1,8 +1,10 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import classes from "./Users.module.css";
-import userPhoto from "../../assets/images/user-avatar.jpg";
+import Paginator from '../Paginator/Paginator';
+
+import classes from './Users.module.css';
+import userPhoto from '../../assets/images/user-avatar.jpg';
 
 const Users = props => {
   const {
@@ -13,37 +15,8 @@ const Users = props => {
     onPageChanged,
     isFollowingProgress,
     followUser,
-    unfollowUser
+    unfollowUser,
   } = props;
-
-  const pagesCount = Math.ceil(usersCount / pageSize);
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
-  let pagesList = pages.map(page => {
-    return (
-      <li
-        key={page}
-        className={
-          currentPage === page
-            ? classes.paginationItemSelected
-            : classes.paginationItem
-        }
-        onClick={e => onPageChanged(page)}
-      >
-        {page}
-      </li>
-    );
-  });
-
-  const paginationBlock = (
-    <div className={classes.pagination}>
-      <span className={classes.paginationTitle}>pages: </span>
-      <ul className={classes.paginationList}>{pagesList}</ul>
-    </div>
-  );
 
   const usersList = users.map(u => (
     <div className={classes.userBlock} key={u.id}>
@@ -94,7 +67,12 @@ const Users = props => {
 
   return (
     <div>
-      {paginationBlock}
+      <Paginator
+        pageSize={pageSize}
+        usersCount={usersCount}
+        currentPage={currentPage}
+        onPageChanged={onPageChanged}
+      />
       {usersList}
     </div>
   );

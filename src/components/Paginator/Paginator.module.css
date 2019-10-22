@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.paginationTitle {
+}
+
+.paginationList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.paginationItem {
+  margin: 0 5px;
+  cursor: pointer;
+}
+.paginationItem:hover {
+  color: red;
+}
+
+.paginationItemSelected {
+  margin: 0 5px;
+  color: red;
+}
