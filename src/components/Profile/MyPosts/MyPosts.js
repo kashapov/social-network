@@ -1,15 +1,16 @@
-import React from "react";
-import { reduxForm, Field } from "redux-form";
+import React from 'react';
+import { reduxForm, Field } from 'redux-form';
 
-import Post from "./Post/Post";
-import { Textarea } from "../../FormControls/FormControls";
-import { required, maxLengthCreator } from "../../../utils/validators";
+import Post from './Post/Post';
+import { Textarea } from '../../FormControls/FormControls';
+import { required, maxLengthCreator } from '../../../utils/validators';
 
-import classes from "./MyPosts.module.css";
+import classes from './MyPosts.module.css';
 
 const maxLength = maxLengthCreator(30);
 
-const MyPosts = props => {
+const MyPosts = React.memo(props => {
+  console.log('RENDER MyPosts');
   const { addPost } = props;
   const { postsData } = props.profilePage;
 
@@ -32,7 +33,7 @@ const MyPosts = props => {
       </div>
     </div>
   );
-};
+});
 
 const AddPostForm = props => {
   return (
@@ -49,7 +50,7 @@ const AddPostForm = props => {
 };
 
 const PostReduxForm = reduxForm({
-  form: "profileAddPostForm"
+  form: 'profileAddPostForm',
 })(AddPostForm);
 
 export default MyPosts;

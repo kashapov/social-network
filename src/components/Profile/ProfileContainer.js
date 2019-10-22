@@ -10,7 +10,7 @@ import {
   updateStatus,
 } from '../../redux/profileReducer';
 
-class ProfileContainer extends React.Component {
+class ProfileContainer extends React.PureComponent {
   componentDidMount() {
     const { match, getProfile, getStatus, authUserId } = this.props;
     let userId = match.params.userId;
