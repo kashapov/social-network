@@ -10,7 +10,6 @@ import classes from './MyPosts.module.css';
 const maxLength = maxLengthCreator(30);
 
 const MyPosts = React.memo(props => {
-  console.log('RENDER MyPosts');
   const { addPost } = props;
   const { postsData } = props.profilePage;
 

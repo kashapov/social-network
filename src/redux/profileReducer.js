@@ -53,28 +53,25 @@ export const setStatus = status => ({ type: SET_STATUS, status });
 
 // Thunk Creators
 export const getProfile = userId => {
-  return dispatch => {
-    usersAPI.getProfile(userId).then(response => {
-      dispatch(setProfile(response));
-    });
+  return async dispatch => {
+    const response = await usersAPI.getProfile(userId);
+    dispatch(setProfile(response));
   };
 };
 
 export const getStatus = userId => {
-  return dispatch => {
-    profileAPI.getStatus(userId).then(data => {
-      dispatch(setStatus(data));
-    });
+  return async dispatch => {
+    const data = await profileAPI.getStatus(userId);
+    dispatch(setStatus(data));
   };
 };
 
 export const updateStatus = status => {
-  return dispatch => {
-    profileAPI.updateStatus(status).then(data => {
-      if (data.resultCode === 0) {
-        dispatch(setStatus(status));
-      }
-    });
+  return async dispatch => {
+    const data = await profileAPI.updateStatus(status);
+    if (data.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
   };
 };
 
