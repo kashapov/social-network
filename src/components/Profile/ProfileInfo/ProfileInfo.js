@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import ProfileStatusHooks from "./ProfileStatusHooks";
+import ProfileStatusHooks from './ProfileStatusHooks';
 
-import classes from "./ProfileInfo.module.css";
+import classes from './ProfileInfo.module.css';
 
 const ProfileInfo = props => {
-  if (!props.profile) return "Loading";
+  const { profile, status, updateStatus } = props;
+
+  if (!profile) return 'Loading';
 
   const userProfile = (
     <div className={classes.userProfile}>
@@ -13,28 +15,23 @@ const ProfileInfo = props => {
         <div>
           <img
             className={classes.userPhoto}
-            src={props.profile.photos.large}
-            alt={props.profile.fullName}
+            src={profile.photos.large}
+            alt={profile.fullName}
           />
         </div>
       </div>
       <div className={classes.userProfileRight}>
         <div>
-          <div className={classes.userName}>{props.profile.fullName}</div>
-          <ProfileStatusHooks
-            status={props.status}
-            updateStatus={props.updateStatus}
-          />
-          <div className={classes.userStatus}>
-            About me: {props.profile.aboutMe}
-          </div>
+          <div className={classes.userName}>{profile.fullName}</div>
+          <ProfileStatusHooks status={status} updateStatus={updateStatus} />
+          <div className={classes.userStatus}>About me: {profile.aboutMe}</div>
         </div>
         <div className={classes.userLocation}>
           <div>
             Contacts:
             <ul>
-              <li>{props.profile.contacts.facebook}</li>
-              <li>{props.profile.contacts.github}</li>
+              <li>{profile.contacts.facebook}</li>
+              <li>{profile.contacts.github}</li>
             </ul>
           </div>
         </div>

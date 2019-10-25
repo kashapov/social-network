@@ -3,7 +3,10 @@ import { Route } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
+import store from './redux/redux-store';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Sidebar from './components/Sidebar/Sidebar';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -46,10 +49,22 @@ const mapStateToProps = state => ({
   initialized: state.app.initialized,
 });
 
-export default compose(
+const AppContainer = compose(
   withRouter,
   connect(
     mapStateToProps,
     { initializeApp },
   ),
 )(App);
+
+const AppSN = props => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  );
+};
+
+export default AppSN;
