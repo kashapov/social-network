@@ -29,7 +29,7 @@ const Users = props => {
     <div>
       <Paginator
         pageSize={pageSize}
-        usersCount={usersCount}
+        itemsCount={usersCount}
         currentPage={currentPage}
         onPageChanged={onPageChanged}
       />
