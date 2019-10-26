@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/social-network/static/css/main.a1a847bb.chunk.css",
+    "main.js": "/social-network/static/js/main.fd2a4192.chunk.js",
+    "main.js.map": "/social-network/static/js/main.fd2a4192.chunk.js.map",
+    "runtime-main.js": "/social-network/static/js/runtime-main.58dd86ca.js",
+    "runtime-main.js.map": "/social-network/static/js/runtime-main.58dd86ca.js.map",
+    "static/js/2.ec686714.chunk.js": "/social-network/static/js/2.ec686714.chunk.js",
+    "static/js/2.ec686714.chunk.js.map": "/social-network/static/js/2.ec686714.chunk.js.map",
+    "static/css/3.ba80911e.chunk.css": "/social-network/static/css/3.ba80911e.chunk.css",
+    "static/js/3.a66705a4.chunk.js": "/social-network/static/js/3.a66705a4.chunk.js",
+    "static/js/3.a66705a4.chunk.js.map": "/social-network/static/js/3.a66705a4.chunk.js.map",
+    "static/css/4.656dd1de.chunk.css": "/social-network/static/css/4.656dd1de.chunk.css",
+    "static/js/4.ff51272b.chunk.js": "/social-network/static/js/4.ff51272b.chunk.js",
+    "static/js/4.ff51272b.chunk.js.map": "/social-network/static/js/4.ff51272b.chunk.js.map",
+    "static/css/5.e70fa240.chunk.css": "/social-network/static/css/5.e70fa240.chunk.css",
+    "static/js/5.aea5ece2.chunk.js": "/social-network/static/js/5.aea5ece2.chunk.js",
+    "static/js/5.aea5ece2.chunk.js.map": "/social-network/static/js/5.aea5ece2.chunk.js.map",
+    "index.html": "/social-network/index.html",
+    "precache-manifest.149409a3da4c02cacad599f1f6ff5127.js": "/social-network/precache-manifest.149409a3da4c02cacad599f1f6ff5127.js",
+    "service-worker.js": "/social-network/service-worker.js",
+    "static/css/3.ba80911e.chunk.css.map": "/social-network/static/css/3.ba80911e.chunk.css.map",
+    "static/css/4.656dd1de.chunk.css.map": "/social-network/static/css/4.656dd1de.chunk.css.map",
+    "static/css/5.e70fa240.chunk.css.map": "/social-network/static/css/5.e70fa240.chunk.css.map",
+    "static/css/main.a1a847bb.chunk.css.map": "/social-network/static/css/main.a1a847bb.chunk.css.map",
+    "static/media/spinner.svg": "/social-network/static/media/spinner.acf82525.svg",
+    "static/media/user-avatar.jpg": "/social-network/static/media/user-avatar.c7b5f6a0.jpg"
+  }
+}
