@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "270b10d4e66ec01a486639fae8f3d151",
+    "revision": "a60c57bf6b5502f3ffb16f48dfec6a37",
     "url": "/social-network/index.html"
   },
   {
-    "revision": "6925e989ec094a88007a",
+    "revision": "f0f435086dcf952acd60",
     "url": "/social-network/static/css/3.ba80911e.chunk.css"
   },
   {
@@ -12,36 +12,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social-network/static/css/4.656dd1de.chunk.css"
   },
   {
-    "revision": "5900ffd1566a32c01a9e",
+    "revision": "7916087064f5a2b0418c",
     "url": "/social-network/static/css/5.e70fa240.chunk.css"
   },
   {
-    "revision": "e1f17094ec5e6a31946c",
+    "revision": "2f87d6c75d2f0c7217da",
     "url": "/social-network/static/css/main.a1a847bb.chunk.css"
   },
   {
-    "revision": "4808461939659bd07f0d",
-    "url": "/social-network/static/js/2.ec686714.chunk.js"
+    "revision": "3df9651da95fd1a7a527",
+    "url": "/social-network/static/js/2.47532b0f.chunk.js"
   },
   {
-    "revision": "6925e989ec094a88007a",
-    "url": "/social-network/static/js/3.a66705a4.chunk.js"
+    "revision": "f0f435086dcf952acd60",
+    "url": "/social-network/static/js/3.b803f055.chunk.js"
   },
   {
     "revision": "4ac0e658ebeb2b789a25",
     "url": "/social-network/static/js/4.ff51272b.chunk.js"
   },
   {
-    "revision": "5900ffd1566a32c01a9e",
-    "url": "/social-network/static/js/5.aea5ece2.chunk.js"
+    "revision": "7916087064f5a2b0418c",
+    "url": "/social-network/static/js/5.2f6bf791.chunk.js"
   },
   {
-    "revision": "e1f17094ec5e6a31946c",
-    "url": "/social-network/static/js/main.cbe5374e.chunk.js"
+    "revision": "2f87d6c75d2f0c7217da",
+    "url": "/social-network/static/js/main.9e4e053d.chunk.js"
   },
   {
-    "revision": "bfa0b931d8ff94d493a6",
-    "url": "/social-network/static/js/runtime-main.58dd86ca.js"
+    "revision": "83a7b30333f64045a107",
+    "url": "/social-network/static/js/runtime-main.a5a62b48.js"
   },
   {
     "revision": "acf8252599df9c602a39a8602441fd60",
