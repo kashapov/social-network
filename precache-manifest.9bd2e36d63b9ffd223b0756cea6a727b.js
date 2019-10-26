@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a60c57bf6b5502f3ffb16f48dfec6a37",
+    "revision": "8a4e366022298d3110013f5d12811408",
     "url": "/social-network/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social-network/static/css/5.e70fa240.chunk.css"
   },
   {
-    "revision": "2f87d6c75d2f0c7217da",
+    "revision": "bc645427045a34ebdbff",
     "url": "/social-network/static/css/main.a1a847bb.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social-network/static/js/5.2f6bf791.chunk.js"
   },
   {
-    "revision": "2f87d6c75d2f0c7217da",
-    "url": "/social-network/static/js/main.9e4e053d.chunk.js"
+    "revision": "bc645427045a34ebdbff",
+    "url": "/social-network/static/js/main.4e3a94c0.chunk.js"
   },
   {
     "revision": "83a7b30333f64045a107",
