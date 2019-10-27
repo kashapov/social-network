@@ -1,11 +1,11 @@
-import * as axios from "axios";
+import * as axios from 'axios';
 
 const socialNetworkService = axios.create({
   withCredentials: true,
   baseURL: `https://social-network.samuraijs.com/api/1.0/`,
   headers: {
-    "API-KEY": "2637dec1-5ad1-4cbb-9242-012b3c879011"
-  }
+    'API-KEY': '2637dec1-5ad1-4cbb-9242-012b3c879011',
+  },
 });
 
 export const usersAPI = {
@@ -26,9 +26,9 @@ export const usersAPI = {
       .then(response => response.data);
   },
   getProfile(userId) {
-    console.warn("Obsolete method. Please use profileAPI object.");
+    console.warn('Obsolete method. Please use profileAPI object.');
     return profileAPI.getProfile(userId);
-  }
+  },
 };
 
 export const profileAPI = {
@@ -46,7 +46,19 @@ export const profileAPI = {
     return socialNetworkService
       .put(`profile/status`, { status })
       .then(response => response.data);
-  }
+  },
+  savePhoto(photoFile) {
+    const formData = new FormData();
+    formData.append('image', photoFile);
+
+    return socialNetworkService
+      .put(`profile/photo`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(response => response.data);
+  },
 };
 
 export const authAPI = {
@@ -62,5 +74,5 @@ export const authAPI = {
     return socialNetworkService
       .delete(`/auth/login`)
       .then(response => response.data);
-  }
+  },
 };
