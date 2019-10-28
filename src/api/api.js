@@ -59,6 +59,11 @@ export const profileAPI = {
       })
       .then(response => response.data);
   },
+  saveProfile(profile) {
+    return socialNetworkService
+      .put(`profile`, profile)
+      .then(response => response.data);
+  },
 };
 
 export const authAPI = {

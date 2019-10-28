@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ProfileStatusHooks from './ProfileStatusHooks';
+import ProfileDataForm from './ProfileDataForm';
 
 import userPhoto from '../../../assets/images/user-avatar.jpg';
 import classes from './ProfileInfo.module.css';
 
-const ProfileInfo = props => {
-  const { profile, status, updateStatus, isOwner, savePhoto } = props;
+const ProfileInfo = ({
+  profile,
+  status,
+  updateStatus,
+  isOwner,
+  savePhoto,
+  saveProfile,
+}) => {
+  const [editMode, setEditMode] = useState(false);
 
   if (!profile) return 'Loading...';
 
@@ -14,6 +22,12 @@ const ProfileInfo = props => {
     if (e.target.files.length) {
       savePhoto(e.target.files[0]);
     }
+  };
+
+  const onSubmit = formData => {
+    saveProfile(formData).then(() => {
+      setEditMode(false);
+    });
   };
 
   const userProfile = (
@@ -32,7 +46,21 @@ const ProfileInfo = props => {
       </div>
       <div className={classes.userProfileRight}>
         <ProfileStatusHooks status={status} updateStatus={updateStatus} />
-        <ProfileData profile={profile} />
+        {editMode ? (
+          <ProfileDataForm
+            initialValues={profile}
+            profile={profile}
+            onSubmit={onSubmit}
+          />
+        ) : (
+          <ProfileData
+            profile={profile}
+            isOwner={isOwner}
+            activateEditMode={() => {
+              setEditMode(true);
+            }}
+          />
+        )}
       </div>
     </div>
   );
@@ -48,9 +76,14 @@ const Contact = ({ contactTitle, contactValue }) => {
   );
 };
 
-const ProfileData = ({ profile }) => {
+const ProfileData = ({ profile, isOwner, activateEditMode }) => {
   return (
     <>
+      {isOwner && (
+        <div>
+          <button onClick={activateEditMode}>Edit profile</button>
+        </div>
+      )}
       <div className={classes.userName}>{profile.fullName}</div>
       <div>
         <div>

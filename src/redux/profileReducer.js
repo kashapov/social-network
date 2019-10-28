@@ -1,3 +1,4 @@
+import { stopSubmit } from 'redux-form';
 import { usersAPI, profileAPI } from '../api/api';
 
 const ADD_POST = 'ADD-POST';
@@ -89,6 +90,23 @@ export const savePhoto = file => {
 
     if (data.resultCode === 0) {
       dispatch(savePhotoSuccess(data.data.photos));
+    }
+  };
+};
+
+export const saveProfile = profile => {
+  return async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const data = await profileAPI.saveProfile(profile);
+
+    if (data.resultCode === 0) {
+      dispatch(getProfile(userId));
+    } else {
+      // TODO: parse data.messages[0] = Invalid url format (Contacts->Facebook)
+      // to: contacts and facebook
+      // { _error: data.messages[0] } -> {contacts: {"facebook": data.messages[0]} }
+      dispatch(stopSubmit('profile', { _error: data.messages[0] }));
+      return Promise.reject(data.messages[0]);
     }
   };
 };
