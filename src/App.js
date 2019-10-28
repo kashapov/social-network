@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -41,15 +41,20 @@ class App extends React.PureComponent {
         <HeaderContainer />
         <Sidebar />
         <div className="content">
-          <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-          <Route
-            path="/profile/:userId?"
-            render={withSuspense(ProfileContainer)}
-          />
-          <Route path="/users" render={withSuspense(UsersContainer)} />
-          <Route path="/news" component={News} />
-          <Route path="/music" component={Music} />
-          <Route path="/login" component={Login} />
+          <Switch>
+            <Redirect exact from="/" to="/profile" />
+            
+            <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+            <Route
+              path="/profile/:userId?"
+              render={withSuspense(ProfileContainer)}
+            />
+            <Route path="/users" render={withSuspense(UsersContainer)} />
+            <Route path="/news" component={News} />
+            <Route path="/music" component={Music} />
+            <Route path="/login" component={Login} />
+            <Route path="*" render={() => <div>404 - NOT FOUND</div>} />
+          </Switch>
         </div>
       </div>
     );

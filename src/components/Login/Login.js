@@ -17,7 +17,9 @@ const LoginForm = props => {
 
   const captcha = props.captchaUrl && (
     <>
-      <img src={props.captchaUrl} />{' '}
+      <div>
+        <img src={props.captchaUrl} alt="captcha" />
+      </div>
       <Field
         name="captcha"
         component={Input}
