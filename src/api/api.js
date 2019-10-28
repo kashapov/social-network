@@ -70,14 +70,22 @@ export const authAPI = {
   authMe() {
     return socialNetworkService.get(`/auth/me`).then(response => response.data);
   },
-  login(email, password, rememberMe = false) {
+  login(email, password, rememberMe = false, captcha = null) {
     return socialNetworkService
-      .post(`/auth/login`, { email, password, rememberMe })
+      .post(`/auth/login`, { email, password, rememberMe, captcha })
       .then(response => response.data);
   },
   logout() {
     return socialNetworkService
       .delete(`/auth/login`)
+      .then(response => response.data);
+  },
+};
+
+export const securityAPI = {
+  getCaptchaUrl() {
+    return socialNetworkService
+      .get(`security/get-captcha-url`)
       .then(response => response.data);
   },
 };
